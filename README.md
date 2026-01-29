@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/UditAkhourii/contextmd/actions"><img src="https://img.shields.io/github/actions/workflow/status/UditAkhourii/contextmd/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
   <a href="https://www.npmjs.com/package/contextmd"><img src="https://img.shields.io/npm/v/contextmd?style=for-the-badge&color=blue" alt="NPM Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License"></a>
   <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/Written_in-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
@@ -114,7 +115,7 @@ Want to build this from source?
 
 1.  **Clone the repo**:
     ```bash
-    git clone https://github.com/your-username/contextmd.git
+    git clone https://github.com/UditAkhourii/contextmd.git
     cd contextmd
     ```
 
@@ -142,4 +143,4 @@ We welcome contributions! Please open an issue or submit a PR if you have ideas 
 
 ## 📄 License
 
-MIT © [Antigravity](https://github.com/akhouriudit)
+MIT © [Antigravity](https://github.com/UditAkhourii)
