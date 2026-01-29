@@ -11,6 +11,12 @@
   <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/Written_in-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
 </p>
 
+> **🚀 maintain your AI Documentation effortlessly?**
+>
+> Check out **[SuperDocs.cloud](https://superdocs.cloud)** — The platform to build, host, and maintain AI-ready documentation in **1-click** directly from your GitHub repository.
+>
+> \- *Always up to date. Zero config. Production ready.*
+
 ---
 
 **ContextMD** is the ultimate terminal utility for turning complex documentation websites into a single, high-density **AI Context File**.
@@ -18,6 +24,18 @@
 Modern LLMs and Agents (like Claude 3.5 Sonnet, GPT-4o, or Gemini 1.5 Pro) are powerful, but they struggle to navigate multi-page documentation sites effectively. They get lost in navigation bars, footers, duplicate content, and fragmented pages.
 
 **ContextMD solves this.** It crawls, cleans, and chemically refines entire documentation sites into a single `context.md` file that you can drop directly into your LLM's context window.
+
+## ☁️ Go Pro with SuperDocs.cloud
+
+Love the CLI but want automation?
+
+**[SuperDocs.cloud](https://superdocs.cloud)** takes this concept to the enterprise level:
+- 🔄 **Auto-Sync**: Automatically updates your context whenever you push to GitHub.
+- 🌍 **Hosted URLs**: Get a permanent, shareable URL for your documentation context.
+- 🧠 **Smart Versioning**: maintain multiple versions of your docs (v1, v2) context.
+- ⚡ **1-Click Setup**: Just connect your repo, and we handle the scraping, cleaning, and hosting.
+
+[**Start Building on SuperDocs.cloud →**](https://superdocs.cloud)
 
 ## ✨ Features
 
