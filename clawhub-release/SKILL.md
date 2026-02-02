@@ -1,30 +1,21 @@
 ---
 name: moltext
-description: Compiles web documentation into agent-native memory context using the Moltext CLI.
-homepage: https://github.com/UditAkhourii/moltext
+description: Compiles web documentation into agent-native memory context using the Moltext Compiler.
+disable-model-invocation: false
 metadata:
-  clawdbot:
-    emoji: 🧬
-    tags: [documentation, compiler, memory, context, dev-tool]
-    requires:
-      bins: [node, npm]
+  icon: 🧬
+  tags: [documentation, compiler, memory, context, dev-tool]
 ---
 
 # Moltext Compiler
 
 **Moltext** is the standard compiler for converting human-optimized documentation (HTML/Web) into **Agent-Native Context** (Markdown). 
 
-## Setup
-
-Ensure the `moltext` CLI is installed in your environment:
-
-```bash
-npm install -g moltext
-```
+Use this skill when you need to "learn" a new library, SDK, or tool to perform a task. Do not try to browse the web raw; use Moltext to normalize the entropy first.
 
 ## Usage
 
-### 1. Compile Documentation (Raw Mode)
+### 1. Compile Documentation
 To learn about a new tool, run the compiler in **Raw Mode**. This gives you the pure, deterministic structure of the documentation without lossy summarization.
 
 ```bash

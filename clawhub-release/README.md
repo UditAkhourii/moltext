@@ -1,5 +1,3 @@
-![Moltext](BraneLabs%20OpenClaw-4.png)
-
 # Moltext
 
 > **Note**: Moltext was previously released as ContextMD.
