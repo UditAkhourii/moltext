@@ -1,164 +1,55 @@
-# 🧠 ContextMD
+# Moltext
+
+> **Note**: Moltext was previously released as ContextMD.
+
+## Agent-native documentation compiler for Moltbots and autonomous agents.
 
 <p align="center">
-  <strong>Feed your Agents the Context they deserve.</strong>
-</p>
-
-<p align="center">
-  <a href="https://github.com/UditAkhourii/contextmd/actions"><img src="https://img.shields.io/github/actions/workflow/status/UditAkhourii/contextmd/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
-  <a href="https://www.npmjs.com/package/contextmd-cli"><img src="https://img.shields.io/npm/v/contextmd-cli?style=for-the-badge&color=blue" alt="NPM Version"></a>
+  <a href="https://github.com/UditAkhourii/moltext/actions"><img src="https://img.shields.io/github/actions/workflow/status/UditAkhourii/moltext/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
+  <a href="https://www.npmjs.com/package/moltext"><img src="https://img.shields.io/npm/v/moltext?style=for-the-badge&color=blue" alt="NPM Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg?style=for-the-badge" alt="CC BY-NC 4.0"></a>
   <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/Written_in-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
 </p>
 
-> **🚀 maintain your AI Documentation effortlessly?**
->
-> Check out **[SuperDocs.cloud](https://superdocs.cloud)** — The platform to build, host, and maintain AI-ready documentation in **1-click** directly from your GitHub repository.
->
-> \- *Always up to date. Zero config. Production ready.*
+Human documentation is optimized for humans, not agents. Agents ingest context; they do not navigate websites. Moltext is the compile step between human docs and agent memory. It output is a deterministic `context.md`.
 
----
+## Moltbots & Agent Systems
 
-**ContextMD** is the ultimate terminal utility for turning complex documentation websites into a single, high-density **AI Context File**.
+Moltbots and other autonomous agents require single-file, noise-free context to operate reliably. `context.md` is designed to be dropped directly into Moltbot workflows (memory or RAG pipelines). Moltext exists to standardize agent-readable documentation, ensuring deterministic input, memory stability, and entropy reduction.
 
-Modern LLMs and Agents (like Claude 3.5 Sonnet, GPT-4o, or Gemini 1.5 Pro) are powerful, but they struggle to navigate multi-page documentation sites effectively. They get lost in navigation bars, footers, duplicate content, and fragmented pages.
+## Pipeline
 
-**ContextMD solves this.** It crawls, cleans, and chemically refines entire documentation sites into a single `context.md` file that you can drop directly into your LLM's context window.
+1. **Parse**: Crawl the documentation site.
+2. **Normalize**: Clean and standardizing the HTML.
+3. **Compile**: Use an LLM to structurally compress the content into agent-readable form.
+4. **Emit**: Generate the final `context.md`.
 
-## ☁️ Go Pro with SuperDocs.cloud
-
-Love the CLI but want automation?
-
-**[SuperDocs.cloud](https://superdocs.cloud)** takes this concept to the enterprise level:
-- 🔄 **Auto-Sync**: Automatically updates your context whenever you push to GitHub.
-- 🌍 **Hosted URLs**: Get a permanent, shareable URL for your documentation context.
-- 🧠 **Smart Versioning**: maintain multiple versions of your docs (v1, v2) context.
-- ⚡ **1-Click Setup**: Just connect your repo, and we handle the scraping, cleaning, and hosting.
-
-[**Start Building on SuperDocs.cloud →**](https://superdocs.cloud)
-
-## ✨ Features
-
-- **🕷️ Deep Crawling**: Intelligently traverses documentation sites, following links and building a comprehensive map of the content.
-- **🧠 AI-Powered Refinement**: Uses OpenAI's models (configurable) to "read" each page and rewrite it for machine comprehension, stripping fluff and prioritizing logic, API signatures, and examples.
-- **🧹 Noise Reduction**: Automatically detects and separates main content from sidebars, headers, footers, and advertisements.
-- **⚡ High Performance**: Concurrent processing with a beautiful, real-time CLI dashboard.
-- **📄 Single File Output**: Produces a consolidated Markdown file with clear headers and structure, perfect for RAG systems or direct LLM context.
-
-## 🚀 Installation
-
-Ensure you have **Node.js 18+** installed.
-
-### Global Install (Recommended)
+## Installation
 
 ```bash
-npm install -g contextmd-cli
+npm install -g moltext
 ```
 
-### Run via npx (No install required)
+## Usage
 
 ```bash
-npx contextmd https://docs.example.com
+moltext [options] <url>
 ```
 
-## 🛠️ Usage
+### Options
 
-### Quick Start
+- `-k, --key <key>`: OpenAI API Key (or set `OPENAI_API_KEY` env var)
+- `-o, --output <path>`: Output file path (default: `context.md`)
+- `-l, --limit <number>`: Max pages to parse (default: 100)
 
-1.  **Get an OpenAI API Key**: ContextMD uses AI to compress and refine the content.
-2.  **Run the tool**:
+### Example
 
 ```bash
-export OPENAI_API_KEY=sk-proj-...
-contextmd https://docs.turso.tech
+moltext https://docs.example.com -o context.md
 ```
 
-This will generate a `context.md` file in your current directory.
+## License
 
-### Command Line Options
+© Udit Akhouri — Moltext
 
-```bash
-Usage: contextmd [options] <url>
-
-Arguments:
-  url                      Base URL of the documentation to convert
-
-Options:
-  -k, --key <key>          OpenAI API Key (can also be set via OPENAI_API_KEY env var)
-  -o, --output <path>      Output file path (default: "context.md")
-  -l, --limit <number>     Max pages to crawl (default: "100")
-  -h, --help               display help for command
-```
-
-### Examples
-
-**Crawl a specific documentation site with a page limit:**
-
-```bash
-contextmd https://developer.spotify.com/documentation/web-api --limit 50
-```
-
-**Save to a specific location:**
-
-```bash
-contextmd https://stripe.com/docs/api -o ./stripe-context.md
-```
-
-## 🏗️ How It Works
-
-ContextMD operates in a three-stage pipeline:
-
-1.  **The Crawler**:
-    *   Starts at the provided `url`.
-    *   Uses a Breadth-First Search (BFS) algorithm to find internal links.
-    *   Filters out external links, social media, and irrelevant pages.
-    *   Respects the `--limit` flag to prevent infinite loops on massive sites.
-
-2.  **The Processor (The "Brain")**:
-    *   Downloads the raw HTML of each discovered page.
-    *   Uses `turndown` and `cheerio` to convert HTML to Markdown.
-    *   **AI Step**: Sends the raw Markdown to an LLM with a specialized system prompt designed to:
-        *   Summarize verbose sections.
-        *   Preserve code blocks and API schemas exactly.
-        *   Remove marketing fluff.
-        *   Standardize formatting.
-
-3.  **The Compiler**:
-    *   Stitches all processed pages into a single `context.md` file.
-    *   Adds a metadata header and table of contents structure (implicitly via markdown headers).
-
-## 📦 For Developers
-
-Want to build this from source?
-
-1.  **Clone the repo**:
-    ```bash
-    git clone https://github.com/UditAkhourii/contextmd.git
-    cd contextmd
-    ```
-
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-
-3.  **Build**:
-    ```bash
-    npm run build
-    ```
-
-4.  **Run locally**:
-    ```bash
-    node dist/index.js https://example.com
-    ```
-
-## 🤝 Contributing
-
-We welcome contributions! Please open an issue or submit a PR if you have ideas for:
-- Support for local LLMs (Ollama, etc.)
-- Better crawling heuristics for SPA (Single Page Apps).
-- Output formats (JSON, JSONL for fine-tuning).
-
-## 📄 License
-
-**CC BY-NC 4.0** © [Udit Akhouri](https://github.com/UditAkhourii)
+CC-BY-NC-4.0

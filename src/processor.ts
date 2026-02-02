@@ -51,16 +51,16 @@ export class Processor {
                 messages: [
                     {
                         role: 'system',
-                        content: `You are an expert technical writer optimizing documentation for AI Agents.
-                        Your task is to rewrite the provided documentation Markdown to be:
+                        content: `You are a strict documentation compiler for Moltbots.
+                        Your task is to structurally compress the provided documentation Markdown into a deterministic, agent-readable format.
                         1. Extremely high-density and concise.
-                        2. Optimized for retrieval (keywords, clear logic).
-                        3. Stripped of conversational filler ("In this tutorial you will...").
-                        4. Strictly preserving ALL code blocks and technical constraints.
+                        2. Optimized for vector retrieval (keywords, clear logic).
+                        3. Stripped of all conversational filler (e.g. "In this tutorial you will...").
+                        4. Strictly preserving ALL code blocks, signatures, and technical constraints.
                         5. Formatted with clear headers.
                         
-                        Input is a raw scrape. Fix broken markdown if any.
-                        Return ONLY the refined markdown.`
+                        Input is a raw parse. Fix broken markdown if any.
+                        Return ONLY the compiled markdown.`
                     },
                     {
                         role: 'user',

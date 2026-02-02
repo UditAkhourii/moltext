@@ -38,19 +38,19 @@ export class Crawler {
 
     async crawl(maxPages: number = 500, onUrlFound?: (url: string) => void): Promise<Page[]> {
         const pages: Page[] = [];
-        
+
         while (this.queue.length > 0 && pages.length < maxPages) {
             const url = this.queue.shift()!;
-            
+
             if (this.visited.has(url)) continue;
             this.visited.add(url);
-            
+
             if (onUrlFound) onUrlFound(url);
 
             try {
                 const { data, headers } = await axios.get(url, {
-                    headers: { 'User-Agent': 'AgenticDocsConverter/1.0' },
-                    timeout: 10000 
+                    headers: { 'User-Agent': 'Moltext/1.0' },
+                    timeout: 10000
                 });
 
                 const contentType = headers['content-type'] || '';
@@ -58,7 +58,7 @@ export class Crawler {
 
                 const $ = cheerio.load(data);
                 const title = $('title').text() || url;
-                
+
                 // Extract links
                 $('a').each((_, element) => {
                     const href = $(element).attr('href');
@@ -77,7 +77,7 @@ export class Crawler {
                 // Continue despite errors
             }
         }
-        
+
         return pages;
     }
 }

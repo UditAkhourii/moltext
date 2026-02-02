@@ -1,9 +1,9 @@
 {
-  "name": "contextmd-cli",
+  "name": "moltext",
   "version": "1.0.2",
-  "description": "The ultimate Agentic AI Context Generator for Documentation.",
+  "description": "Agent-native documentation compiler that converts human docs into deterministic context.md for Moltbots and autonomous agents.",
   "bin": {
-    "contextmd": "dist/index.js"
+    "moltext": "dist/index.js"
   },
   "main": "dist/index.js",
   "scripts": {
@@ -12,18 +12,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "ai",
-    "llm",
+    "agent",
+    "agentic",
+    "moltbots",
     "context",
+    "compiler",
     "documentation",
     "rag",
-    "crawler",
-    "scraper",
-    "openai",
-    "automation",
-    "developer-tools",
-    "cli",
-    "agentic"
+    "memory"
   ],
   "author": "Udit Akhouri",
   "license": "CC-BY-NC-4.0",
@@ -47,6 +43,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UditAkhourii/contextmd.git"
+    "url": "git+https://github.com/UditAkhourii/moltext.git"
   }
 }
